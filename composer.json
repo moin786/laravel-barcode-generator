@@ -1,5 +1,5 @@
 {
-    "name": "peal/barcode-generator",
+    "name": "peal/laravel-barcode-generator",
     "description": "Bar code generate in Laravel",
     "license": "MIT",
     "authors": [
