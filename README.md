@@ -4,6 +4,8 @@
 <p align="center">
 This package(Generate barcode in Laravel as well as core PHP) use devid tufts barcode.php script, In this package I have converted devid tufts scripts to laravel way,you may find full script of devid tufts from below link
 http://davidscotttufts.com/2009/03/31/how-to-create-barcodes-in-php/
+
+Note: For this package you have to enable gd library.
 </p>
 
 ## Installation
@@ -28,8 +30,6 @@ For Facade support, paste below line inside aliases array
 
 ```php
 'BarCode' => peal\barcode-generator\BarCode::class,
-```
-
 ```
 
 ### USAGES 
