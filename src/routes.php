@@ -54,12 +54,6 @@ Route::get("/testbarcode",function(){
                             );
         return '<img alt="testing" src="'.$barcontent.'"/>';
         
-        
-        //Without Laravel, can be usable any php or php framework 
-        
-        //$qr = new \peal\qrcodegenerator\Server\QrServer();
-        
-        
     } catch(Exception $e) {
         return $e->getMessage();
     }
