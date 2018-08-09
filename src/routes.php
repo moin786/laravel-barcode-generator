@@ -10,7 +10,7 @@ Route::get("/testbarcode",function(){
     
     try {
         
-        //Using Facades
+        //Using core php
         
         $barcode = new BarCodeServer("BarCode");
         
@@ -26,6 +26,7 @@ Route::get("/testbarcode",function(){
                             );
         return '<img alt="testing" src="'.$barcontent.'"/>';
         
+        //using facads
         $barcontent = BarCode::barcodeFactory("BarCode")
                             ->renderBarcode(
                                     $filepath ='', 
