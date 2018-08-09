@@ -1,0 +1,30 @@
+{
+    "name": "peal/barcode-generator",
+    "description": "Bar code generate in Laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Moinuddin Chowdhury",
+            "email": "moinuddin7@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "peal\\barcodegenerator\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "peal\\barcodegenerator\\BarcodeServiceProvider"
+            ],
+            "aliases": {
+                "BarCode": "peal\\BarcodeServiceProvider\\Facades\\BarCode"
+            }
+        }
+    },
+    "minimum-stability": "stable",
+    "require": {
+        "illuminate/support": "5.6.*"
+    }
+}
