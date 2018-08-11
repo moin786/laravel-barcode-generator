@@ -17,7 +17,7 @@ Route::get("/testbarcode",function(){
         
         $barcontent = $barcode->barcodeFactory("BarCode")
                             ->renderBarcode(
-                                    $filepath = public_path().'/barcode.png', 
+                                    $filepath = '', 
                                     $text="HelloHello", 
                                     $size='50', 
                                     $orientation="horizontal", 
