@@ -5,6 +5,7 @@
  */
 use peal\barcodegenerator\Facades\BarCode;
 use peal\barcodegenerator\Server\BarCodeServer;
+use Illuminate\Support\Facades\File;
 Route::get("/testbarcode",function(){
     
     
@@ -16,7 +17,7 @@ Route::get("/testbarcode",function(){
         
         $barcontent = $barcode->barcodeFactory("BarCode")
                             ->renderBarcode(
-                                    $filepath ='', 
+                                    $filepath = File::put(public_path().'/'), 
                                     $text="HelloHello", 
                                     $size='50', 
                                     $orientation="horizontal", 
