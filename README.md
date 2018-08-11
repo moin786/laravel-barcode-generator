@@ -42,7 +42,7 @@ $barcontent = $bar->barcodeFactory("BarCode")
                           $text="HelloHello", 
                           $size='50', 
                           $orientation="horizontal", 
-                          $code_type="code39", 
+                          $code_type="code39",// code_type : code128,code39,code128b,code128a,code25,codabar 
                           $print=true, 
                           $sizefactor=1
                   );
@@ -59,7 +59,7 @@ $barcontent = BarCode::barcodeFactory("BarCode")
                               $text="HelloHello", 
                               $size='50', 
                               $orientation="horizontal", 
-                              $code_type="code39", 
+                              $code_type="code39", // code_type : code128,code39,code128b,code128a,code25,codabar 
                               $print=true, 
                               $sizefactor=1
                       );
@@ -81,7 +81,7 @@ return '<img alt="testing" src="'.$barcontent.'"/>';
                                 $text="HelloHello", 
                                 $size='50', 
                                 $orientation="horizontal", 
-                                $code_type="code39", 
+                                $code_type="code39", // code_type : code128,code39,code128b,code128a,code25,codabar 
                                 $print=true, 
                                 $sizefactor=1
                         );
