@@ -26,6 +26,6 @@
     "minimum-stability": "stable",
     
     "require": {
-        "illuminate/support": "5.2.*|5.6.*|5.7.*|5.8.*"
+        "laravel/framework": "5.2.*|5.6.*|5.7.*|5.8.*"
     }
 }
