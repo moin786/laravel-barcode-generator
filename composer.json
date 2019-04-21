@@ -24,7 +24,4 @@
         }
     },
     "minimum-stability": "stable",
-    "require": {
-        "illuminate/support": "5.6.*"
-    }
 }
