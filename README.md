@@ -2,8 +2,7 @@
 <h1 align="center">Generate Barcode using Laravel & Core PHP</h1>
 
 <p align="center">
-This package(Generate barcode in Laravel as well as core PHP) use devid tufts barcode.php script, In this package I have converted devid tufts scripts to laravel way,you may find full script of devid tufts from below link
-http://davidscotttufts.com/2009/03/31/how-to-create-barcodes-in-php/
+This package generate different types of barcode using Laravel as well as core PHP , In have created this package and converted devid tufts scripts in OOP and laravel way for the community.
 
 Note: For this package you have to enable gd library.
 </p>
