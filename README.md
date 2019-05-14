@@ -22,13 +22,13 @@ Composer will automatically download all dependencies.
 After complete the installation, open your app.php from config folder, paste below line inside providers array 
 
 ```php
-peal\barcode-generator\BarcodeServiceProvider::class,
+peal\barcodegenerator\BarcodeServiceProvider::class,
 ```
 
 For Facade support, paste below line inside aliases array
 
 ```php
-'BarCode' => peal\barcode-generator\BarCode::class,
+'BarCode' => peal\barcodegenerator\BarCode::class,
 ```
 
 ### USAGES 
