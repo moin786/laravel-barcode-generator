@@ -2,7 +2,7 @@
 <h1 align="center">Generate Barcode using Laravel & Core PHP</h1>
 
 <p align="center">
-This package generate different types of barcode using Laravel as well as core PHP
+This package generate different types of barcode using Laravel as well as using core PHP.
 
 Note: For this package you have to enable gd library.
 </p>
