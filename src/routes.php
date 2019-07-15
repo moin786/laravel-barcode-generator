@@ -13,7 +13,7 @@ Route::get("/testbarcode",function(){
         
         //Using core php
         
-        $barcode = new BarCodeServer("BarCode");
+        $barcode = new BarCodeServer();
         
         $barcontent = $barcode->barcodeFactory("BarCode")
                             ->renderBarcode(
