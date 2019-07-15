@@ -72,7 +72,7 @@ return '<img alt="testing" src="'.$barcontent.'"/>';
     use peal\barcodegenerator\Server\BarCodeServer;
     try {
 
-    $barcode = new BarCodeServer("BarCode");
+    $barcode = new BarCodeServer();
         
     $barcontent = $barcode->barcodeFactory("BarCode")
                         ->renderBarcode(
