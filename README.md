@@ -28,7 +28,7 @@ peal\barcodegenerator\BarcodeServiceProvider::class,
 For Facade support, paste below line inside aliases array
 
 ```php
-'BarCode' => peal\barcodegenerator\BarCode::class,
+'BarCode' => peal\barcodegenerator\Facades\BarCode::class,
 ```
 
 ### USAGES 
@@ -50,7 +50,7 @@ return '<img alt="testing" src="'.$barcontent.'"/>';
 ### Using Facades
 
 ```php
-use BarCode;
+use peal\barcodegenerator\Facades\BarCode;
 
 $barcontent = BarCode::barcodeFactory("BarCode")
                       ->renderBarcode(
