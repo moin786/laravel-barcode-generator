@@ -72,5 +72,5 @@ abstract class BarCodePoint implements IBarcode
      * @return mixed
      */
     
-    abstract function renderBarcode($filepath, $text, $size, $orientation, $code_type, $print, $sizefactor);
+    abstract function renderBarcode($text, $size, $orientation, $code_type, $print, $sizefactor, $filename);
 }
