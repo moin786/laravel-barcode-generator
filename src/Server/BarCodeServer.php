@@ -10,22 +10,24 @@ class BarCodeServer
      * Bar code Factory
      * 
      * @param string $b
-     * @return BarCode
+     * @return peal\barcodegenerator\BarCode $BarCode 
      */
-    public function barcodeFactory($b) {
+
+    protected $barcode;
+
+    public function __construct($barcode)
+    {
+        $this->barcode = $barcode;
+    }
+
+    public function barcodeFactory() {
         
-        $barcode = null;
         
-        switch($b) {
-            
-            case "BarCode":
-                
-                $barcode = new BarCode();
-                
-                break;
-            
+        
+        if ($this->barcode instanceof BarCode) {
+                $this->barcode = new BarCode();
         }
         
-        return $barcode;
+        return $this->barcode;
     }
 }

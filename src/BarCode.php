@@ -4,7 +4,8 @@ namespace peal\barcodegenerator;
 
 use peal\barcodegenerator\Abstruction\BarCodePoint;
 
-final class BarCode extends BarCodePoint
+
+class BarCode extends BarCodePoint
 {
     /**
      * Image file path
@@ -61,6 +62,13 @@ final class BarCode extends BarCodePoint
      * @var string 
      */
     protected $code_string;
+
+    /** 
+     * Bar code file name
+     * 
+     * @var string
+    */
+    protected $filename;
 
 
     /**
@@ -332,7 +340,7 @@ final class BarCode extends BarCodePoint
                 
 		$this->code_string = "1211212111" . $this->code_string . "121121211";
                 
-                return $this->code_string;
+        return $this->code_string;
 	}
         
         throw new \RuntimeException("Invalid {$this->code_type} type");
@@ -455,131 +463,143 @@ final class BarCode extends BarCodePoint
             case "code128":
                 
                 $this->code128();
-                
+                $this->createImage();
                 break;
             
             case "code128b":
                 
                 $this->code128b();
-                
+                $this->createImage();
                 break;
             
             case "code128a":
                 
                 $this->code128a();
-                
+                $this->createImage();
                 break;
             
             case "code39":
                 
                 $this->code39();
-                
+                $this->createImage();
                 break;
             
             case "code25":
                 
                 $this->code25();
-                
+                $this->createImage();
                 break;
             
             case "codabar":
                 
                 $this->codabar();
-                
+                $this->createImage();
                 break;
             
             default :
                 
                 $this->codabar();
-            
+                $this->createImage();
         }
-        
-        
-	$code_length = 20;
-        
-	if ($this->print) {
-            
-		$text_height = 30;
-                
-	} else {
-            
-		$text_height = 0;
-                
-	}
-	
-	for ( $i=1; $i <= strlen($this->code_string); $i++ ){
-            
-		$code_length = $code_length + (integer)(substr($this->code_string,($i-1),1));
-                
-        }
-        
-	if ( strtolower($this->orientation) == "horizontal" ) {
-            
-		$img_width = $code_length*$this->sizefactor;
-                
-		$img_height = $this->size;
-                
-	} else {
-            
-		$img_width = $this->size;
-                
-		$img_height = $code_length*$this->sizefactor;
-                
-	}
-        
-	$image = imagecreate($img_width, $img_height + $text_height);
-        
-	$black = imagecolorallocate ($image, 0, 0, 0);
-        
-	$white = imagecolorallocate ($image, 255, 255, 255);
-        
-	imagefill( $image, 0, 0, $white );
-        
-	if ( $this->print ) {
-            
-		imagestring($image, 5, 31, $img_height, $this->text, $black );
-                
-	}
-        
-	$location = 10;
-        
-	for ( $position = 1 ; $position <= strlen($this->code_string); $position++ ) {
-            
-		$cur_size = $location + ( substr($this->code_string, ($position-1), 1) );
-                
-		if ( strtolower($this->orientation) == "horizontal" )
-                    
-			imagefilledrectangle( $image, $location*$this->sizefactor, 0, $cur_size*$this->sizefactor, $img_height, ($position % 2 == 0 ? $white : $black) );
-		
-                else
-                    
-			imagefilledrectangle( $image, 0, $location*$this->sizefactor, $img_width, $cur_size*$this->sizefactor, ($position % 2 == 0 ? $white : $black) );
-		
-                $location = $cur_size;
-	}
-	
-	// Draw barcode to the screen or save in a file
-	if ( $this->filepath=="" ) {
-            
-		header ('Content-type: image/png');
-                
-		imagepng($image);
-                
-		imagedestroy($image);
-                
-                exit();
-	} else {
-            
-		imagepng($image,$this->filepath);
-                
-		imagedestroy($image);	
-                
-                exit();
-                
-	}
-        
-        
     }
+
+    /**
+     * Create image inside barcode folder under public folder
+     * 
+     */
+
+    protected function createImage() {
+        // Draw barcode to the screen or save in a file
+        $path = "barcode";
+        if (!file_exists($path)) {
+            mkdir('barcode');
+        }
+        if ( $this->filepath=="" ) {
+            header('Content-Type: image/jpeg');
+            imagejpeg($this->prepareImage(),$path."/".$this->filename);
+            imagedestroy($this->prepareImage());
+        } else {
+                
+            imagepng($this->prepareImage(),$this->filepath);
+                    
+            imagedestroy($this->prepareImage());	
+                    
+        }
+    }
+
+    /**
+     * Prepare image resources
+     * 
+     * @return image resource
+     */
+
+    protected function prepareImage() {
+        $code_length = 20;
+        
+        if ($this->print) {
+                
+            $text_height = 30;
+                    
+        } else {
+                
+            $text_height = 0;
+                    
+        }
+        
+        for ( $i=1; $i <= strlen($this->code_string); $i++ ){
+                
+            $code_length = $code_length + (integer)(substr($this->code_string,($i-1),1));
+                    
+            }
+            
+        if ( strtolower($this->orientation) == "horizontal" ) {
+                
+            $img_width = $code_length*$this->sizefactor;
+                    
+            $img_height = $this->size;
+                    
+        } else {
+                
+            $img_width = $this->size;
+                    
+            $img_height = $code_length*$this->sizefactor;
+                    
+        }
+            
+        $image = imagecreate($img_width, $img_height + $text_height);
+            
+        $black = imagecolorallocate ($image, 0, 0, 0);
+            
+        $white = imagecolorallocate ($image, 255, 255, 255);
+            
+        imagefill( $image, 0, 0, $white );
+            
+        if ( $this->print ) {
+                
+            imagestring($image, 5, 31, $img_height, $this->text, $black );
+                    
+        }
+            
+        $location = 10;
+            
+        for ( $position = 1 ; $position <= strlen($this->code_string); $position++ ) {
+                
+            $cur_size = $location + ( substr($this->code_string, ($position-1), 1) );
+                    
+            if ( strtolower($this->orientation) == "horizontal" )
+                        
+                imagefilledrectangle( $image, $location*$this->sizefactor, 0, $cur_size*$this->sizefactor, $img_height, ($position % 2 == 0 ? $white : $black) );
+            
+                    else
+                        
+                imagefilledrectangle( $image, 0, $location*$this->sizefactor, $img_width, $cur_size*$this->sizefactor, ($position % 2 == 0 ? $white : $black) );
+            
+                    $location = $cur_size;
+        }
+
+        return $image;
+    }
+
         
     /**
      * Render our Bar code
@@ -593,9 +613,7 @@ final class BarCode extends BarCodePoint
      * @param string $sizefactor
      * @return mixed
      */
-    public function renderBarcode($filepath, $text, $size, $orientation, $code_type, $print, $sizefactor) {
-        
-        $this->filepath = $filepath;
+    public function renderBarcode($text, $size, $orientation, $code_type, $print, $sizefactor, $filename) {
         
         $this->text = $text;
         
@@ -608,8 +626,23 @@ final class BarCode extends BarCodePoint
         $this->print = $print;
         
         $this->sizefactor = $sizefactor;
+
+        $this->filename = $filename;
+
+        $this->generateBarcode();
         
-        return $this->generateBarcode();
-        
+        return $this;
+    }
+
+    /**
+     * Barcode file final render in browser
+     */
+
+
+    public function filename($file) {
+
+        $this->filename = $file;
+
+        return "barcode/".$this->filename;
     }
 }

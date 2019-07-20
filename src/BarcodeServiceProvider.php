@@ -26,7 +26,7 @@ class BarcodeServiceProvider extends ServiceProvider {
     
     public function registerBarcode() {
         $this->app->bind('BarCode', function(){
-            return new BarCodeServer();
+            return new BarCodeServer(new BarCode());
         });
         
         $this->app->alias('BarCode', BarCode::class);
