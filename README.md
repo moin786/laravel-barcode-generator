@@ -59,6 +59,8 @@ echo '<img alt="testing" src="'.$barcontent.'"/>';
 ### Multiple barcode 
 
 ```php
+
+$bar = App::make('BarCode');
 $barcodes = [
             [
                 'text' => 'HelloHello',
@@ -98,8 +100,6 @@ $barcodes = [
             ],
         ];
       
-
-    $bar = App::make('BarCode');
     
     foreach($barcodes as $barcode) {
         $barcontent = $bar->barcodeFactory()->renderBarcode(
@@ -225,8 +225,7 @@ $barcodes = [
         ];
       
 
-    $bar = App::make('BarCode');
-    
+       
     foreach($barcodes as $barcode) {
         $barcontent = BarCode::barcodeFactory()->renderBarcode(
                                     $text=$barcode["text"], 
@@ -265,7 +264,7 @@ $barcodes = [
         ];
 $barcontent = new BarCodeServer(new BarCode());
 
-$barcontent = BarCode::barcodeFactory()->renderBarcode(
+$barcontent = $barcontent->barcodeFactory()->renderBarcode(
                                 $text=$barcode["text"], 
                                 $size=$barcode['size'], 
                                 $orientation=$barcode['orientation'], 
@@ -358,7 +357,7 @@ $barcodes = [
 $barcontent = new BarCodeServer(new BarCode());
 
 foreach($barcodes as $barcode) {
-$barcontent = BarCode::barcodeFactory()->renderBarcode(
+$barcontent = $barcontent->barcodeFactory()->renderBarcode(
                                 $text=$barcode["text"], 
                                 $size=$barcode['size'], 
                                 $orientation=$barcode['orientation'], 
