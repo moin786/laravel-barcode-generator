@@ -34,6 +34,8 @@ For Facade support, paste below line inside aliases array
 ### USAGES 
 
 ```php
+
+$bar = App::make('BarCode');
 $barcodes = [
                 'text' => 'HelloHello',
                 'size' => 50,
