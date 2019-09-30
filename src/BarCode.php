@@ -509,18 +509,24 @@ class BarCode extends BarCodePoint
      */
 
     protected function createImage() {
-        // Draw barcode to the screen or save in a file
-        $path = "barcode";
-        if (!file_exists($path)) {
-            mkdir('barcode');
-        }
-        if ( $this->filepath=="" ) {
+        /**
+         * filepath = Customize folder name under public 
+         */
+        if ( $this->filepath === null) {
+            // Draw barcode to the screen or save in a file
+            $path = "barcode";
+            if (!file_exists($path)) {
+                mkdir('barcode');
+            }
             header('Content-Type: image/jpeg');
             imagejpeg($this->prepareImage(),$path."/".$this->filename);
             imagedestroy($this->prepareImage());
         } else {
-                
-            imagepng($this->prepareImage(),$this->filepath);
+
+            if (!file_exists($this->filepath)) {
+                mkdir($this->filepath);
+            }
+            imagepng($this->prepareImage(),$this->filepath."/".$this->filename);
                     
             imagedestroy($this->prepareImage());	
                     
@@ -604,7 +610,7 @@ class BarCode extends BarCodePoint
     /**
      * Render our Bar code
      * 
-     * @param string $filepath
+     * @param string $filepath || Customize folder name under public 
      * @param string $text
      * @param string $size
      * @param string $orientation
@@ -613,7 +619,7 @@ class BarCode extends BarCodePoint
      * @param string $sizefactor
      * @return mixed
      */
-    public function renderBarcode($text, $size, $orientation, $code_type, $print, $sizefactor, $filename) {
+    public function renderBarcode($text, $size, $orientation, $code_type, $print, $sizefactor, $filename, $filepath = null) {
         
         $this->text = $text;
         
@@ -629,6 +635,8 @@ class BarCode extends BarCodePoint
 
         $this->filename = $filename;
 
+        $this->filepath = $filepath;
+
         $this->generateBarcode();
         
         return $this;
@@ -643,6 +651,9 @@ class BarCode extends BarCodePoint
 
         $this->filename = $file;
 
+        if (isset($this->filepath)) {
+            return $this->filepath."/".$this->filename;
+        }
         return "barcode/".$this->filename;
     }
 }

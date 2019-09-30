@@ -62,7 +62,7 @@ abstract class BarCodePoint implements IBarcode
     /**
      * Render our Bar code
      * 
-     * @param string $filepath
+     * @param string $filepath || Customize folder name under public 
      * @param string $text
      * @param string $size
      * @param string $orientation
@@ -72,5 +72,5 @@ abstract class BarCodePoint implements IBarcode
      * @return mixed
      */
     
-    abstract function renderBarcode($text, $size, $orientation, $code_type, $print, $sizefactor, $filename);
+    abstract function renderBarcode($text, $size, $orientation, $code_type, $print, $sizefactor, $filename, $filepath);
 }

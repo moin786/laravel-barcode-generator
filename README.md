@@ -34,7 +34,7 @@ For Facade support, paste below line inside aliases array
 ### USAGES 
 
 ```php
-
+//Generate into barcode folder under public
 $bar = App::make('BarCode');
 $barcodes = [
                 'text' => 'HelloHello',
@@ -56,12 +56,38 @@ $barcontent = $bar->barcodeFactory()->renderBarcode(
                             )->filename($barcode['filename']);
 
 echo '<img alt="testing" src="'.$barcontent.'"/>';    
+
+
+//Generate into customize folder under public
+$bar = App::make('BarCode');
+$barcodes = [
+                'text' => 'HelloHello',
+                'size' => 50,
+                'orientation' => 'horizontal',
+                'code_type' => 'code39',
+                'print' => true,
+                'sizefactor' => 1,
+                'filename' => 'image1.jpeg',
+                'filepath' => 'prdbarcode'
+            ];
+$barcontent = $bar->barcodeFactory()->renderBarcode(
+                                    $text=$barcode["text"], 
+                                    $size=$barcode['size'], 
+                                    $orientation=$barcode['orientation'], 
+                                    $code_type=$barcode['code_type'], // code_type : code128,code39,code128b,code128a,code25,codabar 
+                                    $print=$barcode['print'], 
+                                    $sizefactor=$barcode['sizefactor'],
+                                    $filename = $barcode['filename'],
+                                    $filepath = $barcode['filepath']
+                            )->filename($barcode['filename']);
+
+echo '<img alt="testing" src="'.$barcontent.'"/>';    
 ```
 
 ### Multiple barcode 
 
 ```php
-
+//Generate into barcode folder under public
 $bar = App::make('BarCode');
 $barcodes = [
             [
@@ -119,6 +145,72 @@ $barcodes = [
         
         
     }
+
+
+    //Generate into customize folder under public
+
+    $bar = App::make('BarCode');
+$barcodes = [
+            [
+                'text' => 'HelloHello',
+                'size' => 50,
+                'orientation' => 'horizontal',
+                'code_type' => 'code39',
+                'print' => true,
+                'sizefactor' => 1,
+                'filename' => 'image1.jpeg',
+                'filepath' => 'prdbarcode'
+            ],
+            [
+                'text' => 'HelloPeal',
+                'size' => 50,
+                'orientation' => 'horizontal',
+                'code_type' => 'code39',
+                'print' => true,
+                'sizefactor' => 1,
+                'filename' => 'image2.jpeg',
+                'filepath' => 'prdbarcode'
+            ],
+            [
+                'text' => 'Hi Ruhul',
+                'size' => 50,
+                'orientation' => 'horizontal',
+                'code_type' => 'code128b',
+                'print' => true,
+                'sizefactor' => 1,
+                'filename' => 'image3.jpeg',
+                'filepath' => 'prdbarcode'
+            ],
+            [
+                'text' => 'HelloMahian',
+                'size' => 50,
+                'orientation' => 'horizontal',
+                'code_type' => 'code39',
+                'print' => true,
+                'sizefactor' => 1,
+                'filename' => 'image4.jpeg',
+                'filepath' => 'prdbarcode'
+            ],
+        ];
+      
+    
+    foreach($barcodes as $barcode) {
+        $barcontent = $bar->barcodeFactory()->renderBarcode(
+                                    $text=$barcode["text"], 
+                                    $size=$barcode['size'], 
+                                    $orientation=$barcode['orientation'], 
+                                    $code_type=$barcode['code_type'], // code_type : code128,code39,code128b,code128a,code25,codabar 
+                                    $print=$barcode['print'], 
+                                    $sizefactor=$barcode['sizefactor'],
+                                    $filename = $barcode['filename'],
+                                    $filepath = $barcode['filepath'],
+                            )->filename($barcode['filename']);
+
+        echo '<img alt="testing" src="'.$barcontent.'"/>';    
+            
+        
+        
+    }
 ```
 
 ### Using Facades
@@ -127,6 +219,7 @@ $barcodes = [
 use peal\barcodegenerator\Facades\BarCode;
 
 //Single barcode
+//Generate into barcoce folder under public
 
 $barcodes = [
                 'text' => 'HelloHello',
@@ -147,9 +240,39 @@ $barcontent = BarCode::barcodeFactory()->renderBarcode(
                                     $filename = $barcode['filename']
                             )->filename($barcode['filename']);
 
-        echo '<img alt="testing" src="'.$barcontent.'"/>';    
+        echo '<img alt="testing" src="'.$barcontent.'"/>';  
+        
+        
+//Generate into customize folder under public
+$barcodes = [
+                'text' => 'HelloHello',
+                'size' => 50,
+                'orientation' => 'horizontal',
+                'code_type' => 'code39',
+                'print' => true,
+                'sizefactor' => 1,
+                'filename' => 'image1.jpeg',
+                'filepath' => 'prdbarcode'
+            ];
+$barcontent = BarCode::barcodeFactory()->renderBarcode(
+                                    $text=$barcode["text"], 
+                                    $size=$barcode['size'], 
+                                    $orientation=$barcode['orientation'], 
+                                    $code_type=$barcode['code_type'], // code_type : code128,code39,code128b,code128a,code25,codabar 
+                                    $print=$barcode['print'], 
+                                    $sizefactor=$barcode['sizefactor'],
+                                    $filename = $barcode['filename'],
+                                    $filepath = $barcode['filepath'],
+                            )->filename($barcode['filename']);
+
+        echo '<img alt="testing" src="'.$barcontent.'"/>';  
+
 
 //Multiple barcode
+
+/**
+ * For customize folder name, use filepath key and parameter
+ */
 
 $barcodes = [
             [
