@@ -1,5 +1,5 @@
 {
-    "name": "prince/laravel-barcode-generator",
+    "name": "mprince/laravel-barcode-generator",
     "description": "Barcode generate in Laravel 8",
     "license": "MIT",
     "authors": [
