@@ -13,8 +13,8 @@ class BarcodeServiceProvider extends ServiceProvider {
      * Register our service
      */
     
-    public function register() {
-        
+    public function register() 
+    {
         $this->registerBarcode();
     }
     
@@ -24,7 +24,8 @@ class BarcodeServiceProvider extends ServiceProvider {
      * @return object [access bar code factory]
      */
     
-    public function registerBarcode() {
+    public function registerBarcode() 
+    {
         $this->app->bind('BarCode', function(){
             return new BarCodeServer(new BarCode());
         });
@@ -39,17 +40,16 @@ class BarcodeServiceProvider extends ServiceProvider {
      * 
      * 
      */
-    protected function loadRoute() {
-        
+    protected function loadRoute() 
+    {
         require __DIR__ . '/routes.php';
-        
     }
     
     /*
      * Booting our routes and configuration
      */
-    public function boot() {
-        
+    public function boot() 
+    {
         $this->loadRoute();
     }
 }

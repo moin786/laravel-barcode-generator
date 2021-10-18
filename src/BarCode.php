@@ -646,7 +646,6 @@ class BarCode extends BarCodePoint
      * Barcode file final render in browser
      */
 
-
     public function filename($file) {
 
         $this->filename = $file;

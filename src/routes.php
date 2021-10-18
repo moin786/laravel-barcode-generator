@@ -8,7 +8,6 @@ use peal\barcodegenerator\Server\BarCodeServer;
 use Illuminate\Support\Facades\File;
 Route::get("/testbarcode",function(){
     
-    
     try {
         
         //Using core php
