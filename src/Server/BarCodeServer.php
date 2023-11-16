@@ -22,7 +22,7 @@ class BarCodeServer
 
     public function barcodeFactory() {
         
-        if ($this->barcode instanceof BarCode) {
+        if (! $this->barcode instanceof BarCode) {
                 $this->barcode = new BarCode();
         }
         
