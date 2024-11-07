@@ -19,7 +19,7 @@
                 "Peal\\BarCodeGenerator\\BarcodeServiceProvider"
             ],
             "aliases": {
-                "BarCode": "Peal\\BarcodeServiceProvider\\Facades\\BarCode"
+                "BarCode": "Peal\\BarCodeGenerator\\Facades\\BarCode"
             }
         }
     },

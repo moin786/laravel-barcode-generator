@@ -5,7 +5,7 @@ use Peal\BarCodeGenerator\BarCodeType\BarCodeType;
 use Peal\BarCodeGenerator\Facades\BarCode;
 use Peal\BarCodeGenerator\Server\BarCodeServer;
 
-class BarcodeServiceProvider extends ServiceProvider {
+class BarCodeServiceProvider extends ServiceProvider {
     
     /**
      * Register our service
