@@ -6,7 +6,8 @@
 
 use Peal\BarCodeGenerator\Server\BarCodeServer;
 use Illuminate\Support\Facades\File;
-use Peal\BarCodeGenerator\BarCodeType\BarCode;
+use Peal\BarCodeGenerator\BarCodeType\BarCodeType;
+use Peal\BarCodeGenerator\Facades\BarCode;
 
 Route::get("/testbarcode",function(){
     
@@ -14,7 +15,7 @@ Route::get("/testbarcode",function(){
         
         //Using core php
         
-        $barcode = new BarCodeServer(new BarCode());
+        $barcode = new BarCodeServer(new BarCodeType());
         
         $barcontent = $barcode->barcodeFactory("BarCode")
                             ->renderBarcode(

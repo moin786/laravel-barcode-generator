@@ -1,7 +1,8 @@
 <?php
 namespace Peal\BarCodeGenerator;
 use Illuminate\Support\ServiceProvider;
-use Peal\BarCodeGenerator\BarCodeType\BarCode;
+use Peal\BarCodeGenerator\BarCodeType\BarCodeType;
+use Peal\BarCodeGenerator\Facades\BarCode;
 use Peal\BarCodeGenerator\Server\BarCodeServer;
 
 class BarcodeServiceProvider extends ServiceProvider {
@@ -24,7 +25,7 @@ class BarcodeServiceProvider extends ServiceProvider {
     public function registerBarcode() 
     {
         $this->app->bind('BarCode', function(){
-            return new BarCodeServer(new BarCode());
+            return new BarCodeServer(new BarCodeType());
         });
         
         $this->app->alias('BarCode', BarCode::class);

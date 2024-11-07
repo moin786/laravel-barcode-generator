@@ -5,7 +5,7 @@ namespace Peal\BarCodeGenerator\BarCodeType;
 use Peal\BarCodeGenerator\Abstruction\BarCodePoint;
 
 
-class BarCode extends BarCodePoint
+class BarCodeType extends BarCodePoint
 {
     /**
      * Image file path
