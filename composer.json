@@ -16,7 +16,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Peal\\BarCodeGenerator\\BarcodeServiceProvider"
+                "Peal\\BarCodeGenerator\\BarCodeServiceProvider"
             ],
             "aliases": {
                 "BarCode": "Peal\\BarCodeGenerator\\Facades\\BarCode"
