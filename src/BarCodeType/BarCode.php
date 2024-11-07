@@ -1,6 +1,6 @@
 <?php
 
-namespace Peal\BarCodeGenerator;
+namespace Peal\BarCodeGenerator\BarCodeType;
 
 use Peal\BarCodeGenerator\Abstruction\BarCodePoint;
 

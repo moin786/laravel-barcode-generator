@@ -3,16 +3,18 @@
 /**
  * Can use route from here
  */
-use Peal\BarCodeGenerator\Facades\BarCode;
+
 use Peal\BarCodeGenerator\Server\BarCodeServer;
 use Illuminate\Support\Facades\File;
+use Peal\BarCodeGenerator\BarCodeType\BarCode;
+
 Route::get("/testbarcode",function(){
     
     try {
         
         //Using core php
         
-        $barcode = new BarCodeServer();
+        $barcode = new BarCodeServer(new BarCode());
         
         $barcontent = $barcode->barcodeFactory("BarCode")
                             ->renderBarcode(

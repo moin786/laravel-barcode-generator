@@ -2,7 +2,7 @@
 
 namespace Peal\BarCodeGenerator\Server;
 
-use Peal\BarCodeGenerator\BarCode;
+use Peal\BarCodeGenerator\BarCodeType\BarCode;
 
 class BarCodeServer
 {
