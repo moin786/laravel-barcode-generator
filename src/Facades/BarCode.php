@@ -1,5 +1,5 @@
 <?php
-namespace peal\barcodegenerator\Facades;
+namespace Peal\BarCodeGenerator\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
