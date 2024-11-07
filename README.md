@@ -12,7 +12,7 @@ Note: For this package you have to enable gd library.
 Inside your project root directory, open your terminal
 
 ```shell
-composer require peal/laravel-barcode-generator:dev-master
+composer require Peal/laravel-barcode-generator:dev-master
 ```
 
 Composer will automatically download all dependencies.
@@ -22,7 +22,7 @@ Composer will automatically download all dependencies.
 After complete the installation, open your app.php from config folder, paste below line inside providers array 
 
 ```php
-peal\barcodegenerator\BarcodeServiceProvider::class,
+Peal\BarCodeGenerator\BarcodeServiceProvider::class,
 ```
 
 For Facade support, paste below line inside aliases array
@@ -216,7 +216,7 @@ $barcodes = [
 ### Using Facades
 
 ```php
-use peal\barcodegenerator\Facades\BarCode;
+use peal\BarCodeGenerator\Facades\BarCode;
 
 //Single barcode
 //Generate into barcoce folder under public
@@ -373,8 +373,8 @@ $barcodes = [
 ### For core php
 ```php
     
-use peal\barcodegenerator\Server\BarCodeServer;
-use peal\barcodegenerator\BarCode;
+use Peal\BarCodeGenerator\Server\BarCodeServer;
+use Peal\BarCodeGenerator\BarCodeType\BarCode;
 
 //single barcode
 
