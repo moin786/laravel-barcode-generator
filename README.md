@@ -12,7 +12,7 @@ Note: For this package you have to enable gd library.
 Inside your project root directory, open your terminal
 
 ```shell
-composer require peal/laravel-barcode-generator
+composer require peal/laravel-barcode-generator:dev-master
 ```
 
 Composer will automatically download all dependencies.
