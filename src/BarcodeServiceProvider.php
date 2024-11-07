@@ -1,11 +1,11 @@
 <?php
-namespace peal\barcodegenerator;
+namespace Peal\BarCodeGenerator;
 use Illuminate\Container\Container;
 use Illuminate\Foundation\Application as LaravelApplication;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Lumen\Application as LumenApplication;
 
-use peal\barcodegenerator\Server\BarCodeServer;
+use Peal\BarCodeGenerator\Server\BarCodeServer;
 
 class BarcodeServiceProvider extends ServiceProvider {
     
