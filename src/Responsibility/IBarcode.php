@@ -1,6 +1,6 @@
 <?php
 
-namespace peal\barcodegenerator\Responsibility;
+namespace Peal\BarCodeGenerator\Responsibility;
 
 interface IBarcode
 {
