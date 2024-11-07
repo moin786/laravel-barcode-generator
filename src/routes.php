@@ -3,8 +3,8 @@
 /**
  * Can use route from here
  */
-use peal\barcodegenerator\Facades\BarCode;
-use peal\barcodegenerator\Server\BarCodeServer;
+use Peal\BarCodeGenerator\Facades\BarCode;
+use Peal\BarCodeGenerator\Server\BarCodeServer;
 use Illuminate\Support\Facades\File;
 Route::get("/testbarcode",function(){
     
