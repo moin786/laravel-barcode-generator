@@ -1,8 +1,8 @@
 <?php
 
-namespace peal\barcodegenerator;
+namespace Peal\BarCodeGenerator;
 
-use peal\barcodegenerator\Abstruction\BarCodePoint;
+use Peal\BarCodeGenerator\Abstruction\BarCodePoint;
 
 
 class BarCode extends BarCodePoint
