@@ -1,8 +1,8 @@
 <?php
 
-namespace peal\barcodegenerator\Server;
+namespace Peal\BarCodeGenerator\Server;
 
-use peal\barcodegenerator\BarCode;
+use Peal\BarCodeGenerator\BarCode;
 
 class BarCodeServer
 {
