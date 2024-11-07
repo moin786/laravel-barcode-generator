@@ -1,6 +1,6 @@
 {
     "name": "peal/laravel-barcode-generator",
-    "description": "Barcode generate in Laravel 8",
+    "description": "Barcode generate in Laravel",
     "license": "MIT",
     "authors": [
         {
@@ -10,16 +10,16 @@
     ],
     "autoload": {
         "psr-4": {
-            "peal\\barcodegenerator\\": "src/"
+            "Peal\\BarCodeGenerator\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "peal\\barcodegenerator\\BarcodeServiceProvider"
+                "Peal\\BarCodeGenerator\\BarcodeServiceProvider"
             ],
             "aliases": {
-                "BarCode": "peal\\BarcodeServiceProvider\\Facades\\BarCode"
+                "BarCode": "Peal\\BarcodeServiceProvider\\Facades\\BarCode"
             }
         }
     },
