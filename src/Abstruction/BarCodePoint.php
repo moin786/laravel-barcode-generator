@@ -1,8 +1,8 @@
 <?php
 
-namespace peal\barcodegenerator\Abstruction;
+namespace Peal\BarCodeGenerator\Abstruction;
 
-use peal\barcodegenerator\Responsibility\IBarcode;
+use Peal\BarCodeGenerator\Responsibility\IBarcode;
 
 abstract class BarCodePoint implements IBarcode
 {
