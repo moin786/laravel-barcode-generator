@@ -88,7 +88,7 @@ echo '<img alt="testing" src="'.$barcontent.'"/>';
 
 ```php
 //Generate into barcode folder under public
-$bar = App::make('BarCode');
+
 $barcodes = [
             [
                 'text' => 'HelloHello',
@@ -130,6 +130,7 @@ $barcodes = [
       
     
     foreach($barcodes as $barcode) {
+        $bar = App::make('BarCode');
         $barcontent = $bar->barcodeFactory()->renderBarcode(
                                     $text=$barcode["text"], 
                                     $size=$barcode['size'], 
@@ -149,7 +150,7 @@ $barcodes = [
 
     //Generate into customize folder under public
 
-    $bar = App::make('BarCode');
+    
 $barcodes = [
             [
                 'text' => 'HelloHello',
@@ -195,6 +196,7 @@ $barcodes = [
       
     
     foreach($barcodes as $barcode) {
+        $bar = App::make('BarCode');
         $barcontent = $bar->barcodeFactory()->renderBarcode(
                                     $text=$barcode["text"], 
                                     $size=$barcode['size'], 
@@ -479,9 +481,10 @@ $barcodes = [
 ];
 
 
-$barcontent = new BarCodeServer(new BarCode());
+
 
 foreach($barcodes as $barcode) {
+$barcontent = new BarCodeServer(new BarCode());
 $barcontent = $barcontent->barcodeFactory()->renderBarcode(
                                 $text=$barcode["text"], 
                                 $size=$barcode['size'], 
